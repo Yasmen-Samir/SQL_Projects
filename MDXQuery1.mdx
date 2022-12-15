@@ -1,0 +1,10 @@
+SELECT 
+{[Measures].[Charge Amount]} on COLUMNS,
+{crossjoin( [Corporation].[Corp Name].children,[Corporation].[Region No].&[7])} on ROWS
+FROM [Star Schema]
+
+
+SELECT 
+{[Measures].[Payment Amount]} on COLUMNS,
+{crossjoin (Descendants ([Category].[Category Desc]),[Time Dimension].[Charge Month].&[6])} on ROWS
+FROM [Star Schema]
